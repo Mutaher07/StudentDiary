@@ -1,0 +1,29 @@
+﻿@model IEnumerable<StudentDiary.Models.Grade>
+
+<h2>Grades</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Student</th>
+            <th>Subject</th>
+            <th>Grade</th>
+            <th>Date</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var grade in Model)
+        {
+            <tr>
+                <td>@grade.Student.FirstName @grade.Student.LastName</td>
+                <td>@grade.Subject</td>
+                <td>@grade.GradeValue</td>
+                <td>@grade.Date.ToShortDateString()</td>
+                <td>
+                    <a href="@Url.Action("Edit", "Grades", new { id = grade.Id })">Edit</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

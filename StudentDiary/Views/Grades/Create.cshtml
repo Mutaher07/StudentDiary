@@ -1,0 +1,20 @@
+﻿@model StudentDiary.Models.Grade
+
+<h2>Enter Grade</h2>
+
+<form asp-action="Create">
+    <input type="hidden" asp-for="StudentId" />
+    <div class="form-group">
+        <label asp-for="Subject"></label>
+        <input asp-for="Subject" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="GradeValue"></label>
+        <input asp-for="GradeValue" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Date"></label>
+        <input asp-for="Date" class="form-control" type="date" />
+    </div>
+    <button type="submit" class="btn btn-primary">Save Grade</button>
+</form>
