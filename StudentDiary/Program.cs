@@ -1,11 +1,13 @@
 using Microsoft.EntityFrameworkCore;
 using StudentDiary.Data;
+using StudentDiary.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // 1) DbContext за SQL Server
-builder.Services.AddDbContext<AppDbContext>(options =>
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+builder.Services.AddApplicationServices();
 
 // 2) Добавяме MVC (Controllers + Views)
 builder.Services.AddControllersWithViews();
@@ -21,7 +23,7 @@ var app = builder.Build();
 // 5) Автоматични миграции
 using (var scope = app.Services.CreateScope())
 {
-    var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+    var db = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
     db.Database.Migrate(); // Ще извърши миграции, ако има нови
 }
 

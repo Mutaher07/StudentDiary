@@ -8,9 +8,9 @@ namespace StudentDiary.Controllers
 {
     public class StudentsController : Controller
     {
-        private readonly AppDbContext _context;  // Променено на AppDbContext
+        private readonly ApplicationDbContext _context;  // Променено на AppDbContext
 
-        public StudentsController(AppDbContext context)  // Променено на AppDbContext
+        public StudentsController(ApplicationDbContext context)  // Променено на AppDbContext
         {
             _context = context;
         }

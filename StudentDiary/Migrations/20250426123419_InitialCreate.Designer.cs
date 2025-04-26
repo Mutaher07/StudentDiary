@@ -11,7 +11,7 @@ using StudentDiary.Data;
 
 namespace StudentDiary.Migrations
 {
-    [DbContext(typeof(AppDbContext))]
+    [DbContext(typeof(ApplicationDbContext))]
     [Migration("20250426123419_InitialCreate")]
     partial class InitialCreate
     {
