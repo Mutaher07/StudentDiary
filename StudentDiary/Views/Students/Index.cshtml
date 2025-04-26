@@ -1,6 +1,9 @@
-﻿@model IEnumerable<StudentDiary.Models.Student>
+﻿@model IEnumerable<Student>
 
 <h2>Students</h2>
+
+<!-- Button leading to the Create action in Students controller -->
+<a href="@Url.Action("Create", "Students")" class="btn btn-primary">Add New Student</a>
 
 <table class="table">
     <thead>

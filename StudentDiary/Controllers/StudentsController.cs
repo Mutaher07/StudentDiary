@@ -8,14 +8,15 @@ namespace StudentDiary.Controllers
 {
     public class StudentsController : Controller
     {
-        private readonly AppDbContext _context;  // Променено на AppDbContext
+        private readonly ApplicationDbContext _context;  // Променено на AppDbContext
 
-        public StudentsController(AppDbContext context)  // Променено на AppDbContext
+        public StudentsController(ApplicationDbContext context)  // Променено на AppDbContext
         {
             _context = context;
         }
 
         // Страница за регистрация на ученик
+        [HttpGet]
         public IActionResult Create()
         {
             return View();
@@ -28,11 +29,14 @@ namespace StudentDiary.Controllers
         {
             if (ModelState.IsValid)
             {
-                _context.Students.Add(student);  // Добавено към таблицата Students
-                _context.SaveChanges();
+                // Добавяне на новия ученик в контекста на базата данни
+                _context.Students.Add(student);
+                _context.SaveChanges();  // Записваме промените в базата данни
+
+                // Пренасочваме към списъка със студенти след успешното създаване
                 return RedirectToAction(nameof(Index));
             }
-            return View(student);
+            return View(student);  // Ако има грешки, връщаме същата форма с грешките
         }
 
         // Страница за списък с всички ученици

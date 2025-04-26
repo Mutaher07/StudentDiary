@@ -1,4 +1,8 @@
-﻿@model IEnumerable<StudentDiary.Models.Grade>
+﻿@model IEnumerable<Grade>
+
+@{
+
+}
 
 <h2>Grades</h2>
 
@@ -18,7 +22,6 @@
             <tr>
                 <td>@grade.Student.FirstName @grade.Student.LastName</td>
                 <td>@grade.Subject</td>
-                <td>@grade.GradeValue</td>
                 <td>@grade.Date.ToShortDateString()</td>
                 <td>
                     <a href="@Url.Action("Edit", "Grades", new { id = grade.Id })">Edit</a>
