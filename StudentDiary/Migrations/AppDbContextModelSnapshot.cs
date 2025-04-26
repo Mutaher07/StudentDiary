@@ -48,7 +48,7 @@ namespace StudentDiary.Migrations
 
                     b.HasIndex("StudentId");
 
-                    b.ToTable("Grades");
+                    b.ToTable("Grades", (string)null);
                 });
 
             modelBuilder.Entity("StudentDiary.Models.Student", b =>
@@ -72,7 +72,7 @@ namespace StudentDiary.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Students");
+                    b.ToTable("Students", (string)null);
                 });
 
             modelBuilder.Entity("StudentDiary.Models.Grade", b =>

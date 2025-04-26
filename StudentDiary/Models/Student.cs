@@ -24,6 +24,6 @@ namespace StudentDiary.Models
         public string FullName => $"{FirstName} {LastName}";
 
         // Връзка със списък с оценки
-        public ICollection<Grade> Grades { get; set; }
+        public ICollection<Grade> Grades { get; set; } = new List<Grade>();
     }
 }

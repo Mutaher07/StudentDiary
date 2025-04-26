@@ -16,6 +16,7 @@ namespace StudentDiary.Controllers
         }
 
         // Страница за регистрация на ученик
+        [HttpGet]
         public IActionResult Create()
         {
             return View();
@@ -28,11 +29,14 @@ namespace StudentDiary.Controllers
         {
             if (ModelState.IsValid)
             {
-                _context.Students.Add(student);  // Добавено към таблицата Students
-                _context.SaveChanges();
+                // Добавяне на новия ученик в контекста на базата данни
+                _context.Students.Add(student);
+                _context.SaveChanges();  // Записваме промените в базата данни
+
+                // Пренасочваме към списъка със студенти след успешното създаване
                 return RedirectToAction(nameof(Index));
             }
-            return View(student);
+            return View(student);  // Ако има грешки, връщаме същата форма с грешките
         }
 
         // Страница за списък с всички ученици
